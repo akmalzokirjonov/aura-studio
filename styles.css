@@ -1458,6 +1458,8 @@ dialog[open] {
   grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
 }
 .studio-output {
+  width: 100%;
+  min-width: 0;
   min-height: 510px;
   position: relative;
   background: #080808;
@@ -1480,6 +1482,7 @@ dialog[open] {
   align-items: center;
   justify-content: space-between;
   gap: 15px;
+  flex-wrap: wrap;
 }
 .studio-output-caption > span:first-child {
   font-family: var(--serif);
