@@ -1,0 +1,769 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0a0a0a" />
+    <meta
+      name="description"
+      content="AURA is a new perspective on creative work. Explore a connected canvas for images, motion, and ideas in this interactive studio concept."
+    />
+    <meta property="og:title" content="AURA — Where imagination connects" />
+    <meta
+      property="og:description"
+      content="One canvas. Infinite possibilities. Explore the AURA creative studio concept."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="https://akmalzokirjonov.github.io/aura-studio/assets/sculpture.png"
+    />
+    <title>AURA — Where imagination connects</title>
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
+    <link
+      rel="preload"
+      href="./assets/inter-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="./assets/playfair-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <svg
+      class="icon-library"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <defs>
+        <symbol id="i-arrow" viewBox="0 0 24 24">
+          <path d="M5 12h14m-6-6 6 6-6 6" />
+        </symbol>
+        <symbol id="i-spark" viewBox="0 0 24 24">
+          <path
+            d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5L12 3Z"
+          />
+        </symbol>
+        <symbol id="i-image" viewBox="0 0 24 24">
+          <rect x="3" y="3" width="18" height="18" rx="4" />
+          <path d="m3 16 5-5 6 6 3-3 4 4" />
+          <circle cx="15" cy="8" r="1.5" />
+        </symbol>
+        <symbol id="i-play" viewBox="0 0 24 24">
+          <path d="m9 5 11 7-11 7V5Z" />
+        </symbol>
+        <symbol id="i-nodes" viewBox="0 0 24 24">
+          <circle cx="5" cy="5" r="2" />
+          <circle cx="19" cy="5" r="2" />
+          <circle cx="12" cy="19" r="2" />
+          <path d="m6 7 5 10m7-10-5 10M7 5h10" />
+        </symbol>
+        <symbol id="i-layers" viewBox="0 0 24 24">
+          <path d="m12 3 10 5-10 5L2 8l10-5Zm-9 10 9 5 9-5M3 18l9 5 9-5" />
+        </symbol>
+        <symbol id="i-check" viewBox="0 0 24 24">
+          <path d="m5 12 4 4L19 6" />
+        </symbol>
+        <symbol id="i-close" viewBox="0 0 24 24">
+          <path d="m6 6 12 12M6 18 18 6" />
+        </symbol>
+        <symbol id="i-download" viewBox="0 0 24 24">
+          <path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5" />
+        </symbol>
+      </defs>
+    </svg>
+
+    <header class="site-header">
+      <a class="brand" href="#" aria-label="AURA home"
+        >aura<span class="brand-star">✳</span></a
+      >
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a href="#possibilities">The possibilities</a
+        ><a href="#workflow">How it works</a><a href="#pricing">Pricing</a
+        ><a href="#about">Our story</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="button button-white button-small" data-open-studio>
+          Start free trial
+          <svg class="icon"><use href="#i-arrow" /></svg></button
+        ><button
+          class="menu-toggle"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="mobile-nav"
+        >
+          <span></span><span></span>
+        </button>
+      </div>
+      <nav
+        class="mobile-nav"
+        id="mobile-nav"
+        aria-label="Mobile navigation"
+        hidden
+      >
+        <a href="#possibilities">The possibilities</a
+        ><a href="#workflow">How it works</a><a href="#pricing">Pricing</a
+        ><a href="#about">Our story</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-intro">
+          <p class="eyebrow hero-eyebrow">
+            <span class="tiny-spark">✳</span> A new dimension of creativity
+          </p>
+          <h1 id="hero-title">Where imagination<br /><em>connects.</em></h1>
+          <p class="hero-description">
+            Your ideas don’t live in isolation. Neither should your tools.<br /> A
+            connected canvas for everything you imagine.
+          </p>
+          <div class="hero-actions">
+            <button class="button button-white" data-open-studio>
+              Start creating for free
+              <svg class="icon"><use href="#i-arrow" /></svg></button
+            ><button class="button button-outline" id="watch-film">
+              <svg class="icon play-icon"><use href="#i-play" /></svg> See it in
+              motion
+            </button>
+          </div>
+          <p class="hero-note">A little curiosity is all you need.</p>
+        </div>
+
+        <div
+          class="neural-canvas"
+          id="neural-canvas"
+          aria-label="Interactive creative canvas. Select an image to explore it."
+        >
+          <div class="canvas-aura"></div>
+          <svg class="connections" aria-hidden="true">
+            <defs>
+              <linearGradient id="connection-gold">
+                <stop stop-color="#a78b71" stop-opacity=".12" />
+                <stop offset=".5" stop-color="#c9b8a0" stop-opacity=".8" />
+                <stop offset="1" stop-color="#a78b71" stop-opacity=".22" />
+              </linearGradient>
+            </defs>
+            <g id="connection-paths"></g>
+          </svg>
+          <button
+            class="satellite landscape-card glass"
+            data-scene="landscape"
+            data-node="left"
+            aria-label="Explore the landscape image"
+          >
+            <div class="card-toolbar">
+              <span
+                ><svg class="icon"><use href="#i-image" /></svg> Landscapes,
+                reimagined</span
+              ><span>↗</span>
+            </div>
+            <img
+              src="./assets/landscape.jpg"
+              alt="A mountain valley beneath dramatic clouds"
+              width="600"
+              height="400"
+            />
+            <div class="satellite-caption">
+              <span>A world of your own.</span
+              ><span class="mini-tag">Image</span>
+            </div>
+            <i class="node-port"></i>
+          </button>
+          <button
+            class="satellite architecture-card glass"
+            data-scene="architecture"
+            data-node="left"
+            aria-label="Explore the architecture image"
+          >
+            <div class="card-toolbar">
+              <span
+                ><svg class="icon"><use href="#i-layers" /></svg> Beyond the
+                ordinary</span
+              ><span>↗</span>
+            </div>
+            <img
+              src="./assets/architecture.jpg"
+              alt="Angular contemporary architecture against a pale sky"
+              width="600"
+              height="400"
+            /><i class="node-port"></i>
+          </button>
+
+          <button
+            class="central-node glass"
+            data-open-studio
+            aria-label="Open the AURA creative studio"
+          >
+            <div class="card-toolbar">
+              <span class="studio-title"
+                ><span class="mini-brand">aura</span> Your creative
+                universe</span
+              ><span class="window-dots"><i></i><i></i><i></i></span>
+            </div>
+            <div class="central-art">
+              <img
+                src="./assets/sculpture.png"
+                alt="An abstract flower sculpted from flowing bronze ribbons"
+                width="1536"
+                height="1024"
+                fetchpriority="high"
+              /><span class="art-label">Imagination, materialized.</span
+              ><span class="art-play"
+                ><svg class="icon"><use href="#i-arrow" /></svg
+              ></span>
+            </div>
+            <div class="prompt-preview">
+              <svg class="icon"><use href="#i-spark" /></svg
+              ><span>A sculptural bloom, cast in liquid gold…</span
+              ><span class="prompt-submit">↑</span>
+            </div>
+            <i class="center-port port-left"></i
+            ><i class="center-port port-right"></i>
+          </button>
+
+          <button
+            class="satellite motion-card glass"
+            data-scene="sculpture"
+            data-node="right"
+            aria-label="Explore motion direction"
+          >
+            <div class="card-toolbar">
+              <span
+                ><svg class="icon"><use href="#i-play" /></svg> Give ideas
+                movement</span
+              ><span>↗</span>
+            </div>
+            <div class="motion-image">
+              <img
+                src="./assets/sculpture.png"
+                alt="Close-up of a bronze flower"
+                width="600"
+                height="400"
+              /><span class="motion-play"
+                ><svg class="icon"><use href="#i-play" /></svg></span
+              ><span class="timecode">00:08</span>
+            </div>
+            <div class="waveform" aria-hidden="true"></div>
+            <i class="node-port"></i>
+          </button>
+          <div class="satellite note-card glass" data-node="right">
+            <span class="eyebrow"
+              ><span class="tiny-spark">✳</span> A spark of an idea</span
+            >
+            <p>“What if the impossible<br />was just the beginning?”</p>
+            <div class="note-bottom">
+              <span class="avatar-letter">A</span
+              ><span>Your next great thing</span
+              ><svg class="icon"><use href="#i-spark" /></svg>
+            </div>
+            <i class="node-port"></i>
+          </div>
+          <div class="live-pill glass">
+            <span class="live-dot"></span><strong>LIVE</strong
+            ><span>Your ideas. All connected.</span>
+          </div>
+          <span class="canvas-caption"
+            >ONE CANVAS. INFINITE POSSIBILITIES.</span
+          >
+        </div>
+        <div class="creative-mediums">
+          <span>Made for the way you think.</span>
+          <div>
+            <span
+              ><svg class="icon"><use href="#i-image" /></svg> Image</span
+            ><span
+              ><svg class="icon"><use href="#i-play" /></svg> Motion</span
+            ><span
+              ><svg class="icon"><use href="#i-spark" /></svg> Imagination</span
+            ><span
+              ><svg class="icon"><use href="#i-nodes" /></svg> Connection</span
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="section possibilities" id="possibilities">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">A toolkit without boundaries</p>
+            <h2>Less friction.<br /><em>More possibility.</em></h2>
+          </div>
+          <p>
+            Follow the idea, wherever it takes you.<br />Everything you need to
+            make something<br />that could only come from you.
+          </p>
+        </div>
+        <div class="features-grid">
+          <article class="feature-card glass">
+            <div class="feature-icon">
+              <svg class="icon"><use href="#i-image" /></svg>
+            </div>
+            <h3>Picture the impossible</h3>
+            <p>
+              Explore visual directions, from cinematic landscapes to the
+              smallest, most unexpected detail.
+            </p>
+            <button class="text-link" data-scene="landscape">
+              Explore image <svg class="icon"><use href="#i-arrow" /></svg>
+            </button>
+          </article>
+          <article class="feature-card glass">
+            <div class="feature-icon">
+              <svg class="icon"><use href="#i-play" /></svg>
+            </div>
+            <h3>Make it move</h3>
+            <p>
+              Give a still image a sense of motion. Find the rhythm, atmosphere,
+              and story inside your idea.
+            </p>
+            <button class="text-link" data-film>
+              Explore motion <svg class="icon"><use href="#i-arrow" /></svg>
+            </button>
+          </article>
+          <article class="feature-card glass">
+            <div class="feature-icon">
+              <svg class="icon"><use href="#i-nodes" /></svg>
+            </div>
+            <h3>Connect the dots</h3>
+            <p>
+              Bring references, prompts, and possibilities together. See the
+              bigger picture in one canvas.
+            </p>
+            <a class="text-link" href="#workflow"
+              >See the workflow <svg class="icon"><use href="#i-arrow" /></svg
+            ></a>
+          </article>
+          <article class="feature-card glass">
+            <div class="feature-icon">
+              <svg class="icon"><use href="#i-layers" /></svg>
+            </div>
+            <h3>Keep your perspective</h3>
+            <p>
+              Start with a direction. Refine your prompt. Save the result and
+              make the next step your own.
+            </p>
+            <button class="text-link" data-open-studio>
+              Find your direction
+              <svg class="icon"><use href="#i-arrow" /></svg>
+            </button>
+          </article>
+        </div>
+      </section>
+
+      <section class="section workflow-section" id="workflow">
+        <div class="workflow-visual glass">
+          <img
+            src="./assets/architecture.jpg"
+            alt="Light falling across angular architectural forms"
+            width="800"
+            height="700"
+            loading="lazy"
+          />
+          <div class="workflow-overlay">
+            <span class="workflow-chip glass"
+              ><svg class="icon"><use href="#i-image" /></svg> A reference</span
+            ><span class="workflow-thread"></span
+            ><span class="workflow-chip glass"
+              ><svg class="icon"><use href="#i-spark" /></svg> A new
+              direction</span
+            >
+          </div>
+          <span class="workflow-image-caption"
+            >Every great idea starts somewhere.</span
+          >
+        </div>
+        <div class="workflow-copy">
+          <p class="eyebrow">From a spark to something real</p>
+          <h2>Your flow.<br /><em>Uninterrupted.</em></h2>
+          <div class="workflow-steps">
+            <article>
+              <span>01</span>
+              <div>
+                <h3>Start with a little wonder</h3>
+                <p>
+                  A thought, a reference, a question. Bring it to your canvas.
+                </p>
+              </div>
+            </article>
+            <article>
+              <span>02</span>
+              <div>
+                <h3>Let one idea lead to another</h3>
+                <p>
+                  Try a different direction. Connect the things you didn’t
+                  expect.
+                </p>
+              </div>
+            </article>
+            <article>
+              <span>03</span>
+              <div>
+                <h3>Make it unmistakably yours</h3>
+                <p>
+                  Refine your vision, save your inspiration, and keep creating.
+                </p>
+              </div>
+            </article>
+          </div>
+          <button class="button button-outline" data-open-studio>
+            Try the interactive canvas
+            <svg class="icon"><use href="#i-arrow" /></svg>
+          </button>
+        </div>
+      </section>
+
+      <section class="section pricing-section" id="pricing">
+        <div class="center-heading">
+          <p class="eyebrow">Room for every imagination</p>
+          <h2>A little spark.<br /><em>Or your next big thing.</em></h2>
+          <p>A preview of plans designed to grow with you.</p>
+        </div>
+        <div class="billing-control" aria-label="Billing period">
+          <button
+            class="billing-option active"
+            data-billing="monthly"
+            aria-pressed="true"
+          >
+            Monthly</button
+          ><button
+            class="billing-option"
+            data-billing="annual"
+            aria-pressed="false"
+          >
+            Yearly <span>Save 20%</span>
+          </button>
+        </div>
+        <div class="pricing-grid">
+          <article class="price-card glass">
+            <span class="eyebrow">The beginning</span>
+            <h3>Explorer</h3>
+            <p>A space to follow your curiosity.</p>
+            <div class="price">
+              <span>$</span><strong data-price="free">0</strong
+              ><span>/ month</span>
+            </div>
+            <p class="billing-note" data-billing-note="free">Free to explore</p>
+            <button class="button button-outline" data-plan="Explorer">
+              Start exploring <svg class="icon"><use href="#i-arrow" /></svg>
+            </button>
+            <ul class="check-list">
+              <li>Interactive creative canvas</li>
+              <li>Curated visual inspiration</li>
+              <li>Prompt direction tools</li>
+              <li>Save your favorite previews</li>
+            </ul>
+          </article>
+          <article class="price-card glass featured">
+            <span class="popular-badge">A little more possibility</span
+            ><span class="eyebrow">Your creative stride</span>
+            <h3>
+              Pro <svg class="icon"><use href="#i-spark" /></svg>
+            </h3>
+            <p>For ideas that won’t sit still.</p>
+            <div class="price">
+              <span>$</span><strong data-price="pro">24</strong
+              ><span>/ month</span>
+            </div>
+            <p class="billing-note" data-billing-note="pro">
+              $24 billed monthly · Concept plan
+            </p>
+            <button class="button button-white" data-plan="Pro">
+              Explore Pro <svg class="icon"><use href="#i-arrow" /></svg>
+            </button>
+            <ul class="check-list">
+              <li>Everything in Explorer</li>
+              <li>Expanded image directions</li>
+              <li>Motion concept previews</li>
+              <li>High-resolution inspiration</li>
+              <li>A more connected workflow</li>
+            </ul>
+          </article>
+          <article class="price-card glass">
+            <span class="eyebrow">A shared vision</span>
+            <h3>Studio</h3>
+            <p>Big ideas are better together.</p>
+            <div class="price">
+              <span>$</span><strong data-price="studio">59</strong
+              ><span>/ month</span>
+            </div>
+            <p class="billing-note" data-billing-note="studio">
+              $59 billed monthly · Concept plan
+            </p>
+            <button class="button button-outline" data-plan="Studio">
+              Explore Studio <svg class="icon"><use href="#i-arrow" /></svg>
+            </button>
+            <ul class="check-list">
+              <li>Everything in Pro</li>
+              <li>Shared creative direction</li>
+              <li>Team moodboard concepts</li>
+              <li>A consistent visual language</li>
+              <li>Space for your next chapter</li>
+            </ul>
+          </article>
+        </div>
+        <p class="pricing-footnote">
+          This is an interactive product concept. Paid plans and live AI
+          generation are not available yet.
+        </p>
+      </section>
+
+      <section class="section about-section" id="about">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Human at heart</p>
+            <h2>Built for the dreamers.<br /><em>And the doers.</em></h2>
+          </div>
+          <p>
+            Technology opens the door.<br />Your perspective makes it
+            interesting.<br />We believe the best work needs both.
+          </p>
+        </div>
+        <div class="team-grid">
+          <article class="team-card">
+            <div class="team-image">
+              <img
+                src="./assets/creative.jpg"
+                alt="Close-up of a fountain pen writing on paper"
+                loading="lazy"
+                width="1000"
+                height="1250"
+              /><span class="image-corner">A human perspective</span>
+            </div>
+            <div class="team-caption">
+              <h3>The dreamers</h3>
+              <span>Curiosity & creative direction</span>
+            </div>
+          </article>
+          <article class="team-card">
+            <div class="team-image">
+              <img
+                src="./assets/workspace.jpg"
+                alt="A light-filled office with glass partitions"
+                loading="lazy"
+                width="1000"
+                height="1250"
+              /><span class="image-corner">A world of possibility</span>
+            </div>
+            <div class="team-caption">
+              <h3>The doers</h3>
+              <span>Craft & thoughtful technology</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="closing-section">
+        <span class="closing-spark" aria-hidden="true">✳</span>
+        <p class="eyebrow">There’s something only you can make</p>
+        <h2>Let’s see what<br /><em>you imagine.</em></h2>
+        <button class="button button-white" data-open-studio>
+          Find your first spark <svg class="icon"><use href="#i-arrow" /></svg>
+        </button>
+        <p>No account needed. Just an idea.</p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a class="brand" href="#" aria-label="AURA home"
+            >aura<span class="brand-star">✳</span></a
+          >
+          <p>A little more human.<br />A little more possible.</p>
+          <a
+            class="social-link"
+            href="https://github.com/akmalzokirjonov/aura-studio"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="AURA source on GitHub"
+            ><svg viewBox="0 0 24 24" class="icon">
+              <path
+                d="M9 19c-4 1-4-2-6-2m12 5v-4a3.5 3.5 0 0 0-1-3c3-.3 6-1.5 6-6a5 5 0 0 0-1.4-3.5A4.8 4.8 0 0 0 18.5 2S17.3 1.7 15 3a13.4 13.4 0 0 0-6 0C6.7 1.7 5.5 2 5.5 2a4.8 4.8 0 0 0-.1 3.5A5 5 0 0 0 4 9c0 4.5 3 5.7 6 6a3.5 3.5 0 0 0-1 3v4"
+              /></svg
+          ></a>
+        </div>
+        <div class="footer-links">
+          <h3>Create</h3>
+          <button data-scene="landscape">Image</button
+          ><button data-film>Motion</button
+          ><button data-open-studio>Canvas</button>
+        </div>
+        <div class="footer-links">
+          <h3>Discover</h3>
+          <a href="#possibilities">Possibilities</a
+          ><a href="#workflow">The workflow</a><a href="#pricing">Pricing</a>
+        </div>
+        <div class="footer-links">
+          <h3>Aura</h3>
+          <a href="#about">Our story</a
+          ><button data-info="about">About this concept</button
+          ><button data-info="privacy">Privacy</button>
+        </div>
+        <div class="footer-digest">
+          <h3>A little inspiration, occasionally.</h3>
+          <p>Our creative digest is coming soon.</p>
+          <form id="digest-form">
+            <label class="sr-only" for="digest-email">Your email address</label
+            ><input
+              id="digest-email"
+              type="email"
+              autocomplete="email"
+              placeholder="Your email address"
+              required
+            /><button type="submit" aria-label="Check digest availability">
+              <svg class="icon"><use href="#i-arrow" /></svg>
+            </button>
+          </form>
+          <p id="digest-status" class="digest-status" role="status">
+            No email is collected in this preview.
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span
+          >© <span id="year">2026</span> AURA. A creative studio concept.</span
+        ><span
+          >Made with intention, by
+          <a
+            href="https://github.com/akmalzokirjonov"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Akmal Zokirjonov</a
+          ><span class="footer-star">✳</span></span
+        >
+      </div>
+    </footer>
+
+    <dialog id="studio-dialog" class="studio-dialog">
+      <div class="dialog-top">
+        <a class="brand" href="#" aria-label="AURA"
+          >aura<span class="brand-star">✳</span></a
+        ><span class="eyebrow">The interactive studio</span
+        ><button class="icon-button" data-close aria-label="Close studio">
+          <svg class="icon"><use href="#i-close" /></svg>
+        </button>
+      </div>
+      <div class="studio-layout">
+        <div class="studio-output">
+          <img
+            id="studio-image"
+            src="./assets/sculpture.png"
+            alt="Bronze sculptural flower preview"
+          />
+          <div class="studio-output-caption">
+            <span id="scene-title">Liquid poetry</span
+            ><span class="mini-tag">Curated preview</span>
+          </div>
+        </div>
+        <div class="studio-controls">
+          <p class="eyebrow" id="studio-plan">A space for your next idea</p>
+          <h2>Follow your<br /> <em>curiosity.</em></h2>
+          <p class="studio-description">
+            Choose a starting point and shape a creative brief you can take
+            anywhere.
+          </p>
+          <fieldset class="scene-picker">
+            <legend>Choose a direction</legend>
+            <button
+              type="button"
+              data-pick="sculpture"
+              class="scene-button active"
+              aria-pressed="true"
+            >
+              Sculpture</button
+            ><button
+              type="button"
+              data-pick="landscape"
+              class="scene-button"
+              aria-pressed="false"
+            >
+              Landscape</button
+            ><button
+              type="button"
+              data-pick="architecture"
+              class="scene-button"
+              aria-pressed="false"
+            >
+              Architecture
+            </button>
+          </fieldset>
+          <label for="creative-prompt">Your creative brief</label
+          ><textarea id="creative-prompt" rows="4" maxlength="1000">
+An organic sculptural bloom in brushed bronze, dramatic studio lighting, a quiet black background.</textarea
+          >
+          <div class="studio-button-row">
+            <button class="button button-white" id="save-brief">
+              Save brief
+              <svg class="icon"><use href="#i-download" /></svg></button
+            ><a
+              class="button button-outline"
+              id="download-image"
+              href="./assets/sculpture.png"
+              download="aura-sculpture.png"
+              aria-label="Download preview image"
+              ><svg class="icon"><use href="#i-download" /></svg
+              ><span>Image</span></a
+            >
+          </div>
+          <p class="demo-note">
+            An interactive concept with curated images. Editing the brief does
+            not generate a new image. No account or payment required.
+          </p>
+          <p class="studio-status" role="status" id="studio-status"></p>
+        </div>
+      </div>
+    </dialog>
+    <dialog id="film-dialog" class="film-dialog">
+      <button
+        class="icon-button floating-close"
+        data-close
+        aria-label="Close motion preview"
+      >
+        <svg class="icon"><use href="#i-close" /></svg>
+      </button>
+      <div class="film-frame">
+        <img
+          src="./assets/sculpture.png"
+          alt="Slowly moving view of a bronze sculptural bloom"
+        />
+        <div class="film-text">
+          <p class="eyebrow">A study in possibility</p>
+          <h2>Ideas take <em>shape.</em></h2>
+          <p>Motion study · Curated artwork</p>
+        </div>
+      </div>
+      <div class="film-controls">
+        <button id="film-toggle" class="button button-outline">
+          Pause animation</button
+        ><span>AURA / Motion concept</span>
+      </div>
+    </dialog>
+    <dialog id="info-dialog" class="info-dialog">
+      <button
+        class="icon-button floating-close"
+        data-close
+        aria-label="Close information"
+      >
+        <svg class="icon"><use href="#i-close" /></svg>
+      </button>
+      <p class="eyebrow">AURA</p>
+      <h2 id="info-title"></h2>
+      <p id="info-body"></p>
+    </dialog>
+    <noscript
+      ><p class="noscript-note">
+        Enable JavaScript to explore the interactive studio and billing options.
+      </p></noscript
+    >
+  </body>
+</html>
