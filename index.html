@@ -35,7 +35,7 @@
       crossorigin
     />
     <link rel="stylesheet" href="./styles.css" />
-    <script src="./app.js" defer></script>
+    <script src="./app.js" type="module"></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -93,7 +93,7 @@
       </nav>
       <div class="nav-actions">
         <button class="button button-white button-small" data-open-studio>
-          Start free trial
+          Open free studio
           <svg class="icon"><use href="#i-arrow" /></svg></button
         ><button
           class="menu-toggle"
@@ -124,8 +124,8 @@
           </p>
           <h1 id="hero-title">Where imagination<br /><em>connects.</em></h1>
           <p class="hero-description">
-            Your ideas don’t live in isolation. Neither should your tools.<br /> A
-            connected canvas for everything you imagine.
+            Your ideas don’t live in isolation. Neither should your tools.<br />
+            A connected canvas for everything you imagine.
           </p>
           <div class="hero-actions">
             <button class="button button-white" data-open-studio>
@@ -457,7 +457,7 @@
               Start exploring <svg class="icon"><use href="#i-arrow" /></svg>
             </button>
             <ul class="check-list">
-              <li>Interactive creative canvas</li>
+              <li>Free AI image generation</li>
               <li>Curated visual inspiration</li>
               <li>Prompt direction tools</li>
               <li>Save your favorite previews</li>
@@ -512,8 +512,8 @@
           </article>
         </div>
         <p class="pricing-footnote">
-          This is an interactive product concept. Paid plans and live AI
-          generation are not available yet.
+          AI image generation is free through AI Horde. Pro and Studio are
+          concept plans; no paid subscriptions are available.
         </p>
       </section>
 
@@ -662,15 +662,18 @@
           />
           <div class="studio-output-caption">
             <span id="scene-title">Liquid poetry</span
-            ><span class="mini-tag">Curated preview</span>
+            ><span class="mini-tag" id="image-kind">Curated preview</span>
           </div>
         </div>
         <div class="studio-controls">
           <p class="eyebrow" id="studio-plan">A space for your next idea</p>
-          <h2>Follow your<br /> <em>curiosity.</em></h2>
+          <h2>
+            Follow your<br />
+            <em>curiosity.</em>
+          </h2>
           <p class="studio-description">
-            Choose a starting point and shape a creative brief you can take
-            anywhere.
+            Start with an idea. Create a real AI image for free, then download
+            it and make it your own.
           </p>
           <fieldset class="scene-picker">
             <legend>Choose a direction</legend>
@@ -701,8 +704,38 @@
           ><textarea id="creative-prompt" rows="4" maxlength="1000">
 An organic sculptural bloom in brushed bronze, dramatic studio lighting, a quiet black background.</textarea
           >
+          <div class="ai-settings">
+            <label for="ai-model">Image model</label>
+            <select id="ai-model">
+              <option value="auto">Smart choice · first available</option>
+              <option value="stable_diffusion">Stable Diffusion</option>
+              <option value="Deliberate">Deliberate</option>
+            </select>
+            <span class="ai-free-label">512 × 512 · Free community AI</span>
+          </div>
+          <label class="ai-consent" for="ai-consent">
+            <input id="ai-consent" type="checkbox" />
+            <span
+              >I agree to send this prompt to AI Horde’s volunteer computers.
+              Anonymous images are shared with LAION for AI training.</span
+            >
+          </label>
+          <div class="ai-actions">
+            <button class="button button-white" id="generate-image">
+              <svg class="icon"><use href="#i-spark" /></svg>
+              <span>Generate image</span>
+            </button>
+            <button class="button button-outline" id="cancel-generation" hidden>
+              Cancel
+            </button>
+          </div>
+          <div class="ai-progress" id="ai-progress" hidden>
+            <span class="ai-spinner" aria-hidden="true"></span>
+            <span id="ai-progress-text" role="status" aria-live="polite"></span>
+          </div>
+          <p class="studio-status" role="status" id="studio-status"></p>
           <div class="studio-button-row">
-            <button class="button button-white" id="save-brief">
+            <button class="button button-outline" id="save-brief">
               Save brief
               <svg class="icon"><use href="#i-download" /></svg></button
             ><a
@@ -710,16 +743,22 @@ An organic sculptural bloom in brushed bronze, dramatic studio lighting, a quiet
               id="download-image"
               href="./assets/sculpture.png"
               download="aura-sculpture.png"
-              aria-label="Download preview image"
+              aria-label="Download image"
               ><svg class="icon"><use href="#i-download" /></svg
               ><span>Image</span></a
             >
           </div>
           <p class="demo-note">
-            An interactive concept with curated images. Editing the brief does
-            not generate a new image. No account or payment required.
+            No account, API key, or payment needed. The free queue can take
+            several minutes. Keep this tab open; closing the studio cancels a
+            pending request.
+            <a
+              href="https://aihorde.net/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Powered by AI Horde</a
+            >.
           </p>
-          <p class="studio-status" role="status" id="studio-status"></p>
         </div>
       </div>
     </dialog>

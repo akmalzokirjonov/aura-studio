@@ -1422,6 +1422,10 @@ dialog[open] {
   width: 1030px;
 }
 .dialog-top {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: #111110;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1555,6 +1559,7 @@ dialog[open] {
 }
 .studio-button-row {
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
   margin-top: 17px;
 }
@@ -1575,6 +1580,113 @@ dialog[open] {
   color: var(--light-gold);
   margin-top: 8px;
   min-height: 17px;
+}
+[hidden] {
+  display: none !important;
+}
+.ai-settings {
+  margin-top: 17px;
+}
+.ai-settings label {
+  display: block;
+  font-size: 11px;
+  color: #c0b7aa;
+  margin-bottom: 7px;
+}
+.ai-settings select {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  padding: 10px 12px;
+  background: #151410;
+  color: var(--white);
+  font: inherit;
+  font-size: 11px;
+}
+.ai-settings select:focus-visible {
+  outline: 2px solid var(--hover-gold);
+  outline-offset: 3px;
+}
+.ai-free-label {
+  display: block;
+  margin-top: 7px;
+  color: var(--light-gold);
+  font-size: 9px;
+}
+.studio-controls > .ai-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  margin: 17px 0;
+  font-size: 11px;
+  line-height: 1.8;
+  color: #b5aea3;
+  cursor: pointer;
+}
+.ai-consent input {
+  margin: 4px 0 0;
+  flex-shrink: 0;
+  width: 15px;
+  height: 15px;
+  accent-color: var(--gold);
+}
+.ai-actions {
+  display: flex;
+  gap: 9px;
+  flex-wrap: wrap;
+}
+.ai-actions .button {
+  min-height: 44px;
+  padding: 11px 18px;
+  font-size: 11px;
+}
+.ai-progress {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 15px;
+  font-size: 11px;
+  color: var(--light-gold);
+}
+.ai-spinner {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  border: 1px solid #a78b7144;
+  border-top-color: var(--light-gold);
+  border-radius: 50%;
+  animation: ai-spin 1s linear infinite;
+}
+@keyframes ai-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.studio-status[data-error="true"] {
+  color: #e6b49a;
+}
+.studio-output.generated > img {
+  object-fit: contain;
+  padding-bottom: 70px;
+}
+.studio-output.generated .studio-output-caption > span:first-child {
+  font-size: 22px;
+}
+.studio-output .mini-tag {
+  white-space: normal;
+}
+.studio-output[aria-busy="true"] > img {
+  opacity: 0.55;
+}
+.studio-controls button:disabled,
+.studio-controls select:disabled,
+.studio-controls textarea:disabled {
+  opacity: 0.6;
+}
+.demo-note a {
+  color: var(--light-gold);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 .film-dialog {
   width: 920px;
